@@ -54,13 +54,7 @@ require("bundler/setup")
     @store = Store.find(params.fetch("id").to_i())
     erb(:store_details)
   end
-
-  #loads the form to add a new record to database 'stores'
-  get('/add') do
-    @stores = Store.all()
-    erb(:new_brands)
-  end
-
+  
   # redirect code
 
   # delete('/tasks/:id') do
