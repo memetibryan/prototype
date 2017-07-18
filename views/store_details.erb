@@ -1,0 +1,19 @@
+<h3>Brands</h3>
+  <% if @store.brands().any?() %>
+    <h3>Here are all the brands in this store with their due dates:</h3>  <ol>
+      <% @store.brands().each() do |brand| %>
+        <li><%= brand.description() %> <p>Joined On:</p><%= brand.created_at() %></li>
+      <% end %>
+    </ol>
+  <% else %>
+ <p>There are no brands yet!</p>
+ <% end %>
+
+  <hr>
+
+  <div class="container">
+    <a href="/"><button class="button btn">Return Home</button></a>
+    <a href="/stores"><button class="button btn">Salonists</button></a>
+    <a href="/stores/new"><button class="button btn">New Salonist without Client</button></a>
+    <a href="/add"><button class="button btn">Add a brand to existing Salonist</button></a>
+  </div>

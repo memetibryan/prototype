@@ -31,7 +31,9 @@ h2{
 
 .button{
   color: red;
-  padding: 15px;
+  font-family: 'Raleway', sans-serif;
+  padding: 5px;
+  width: 250px;
 }
 
 a {

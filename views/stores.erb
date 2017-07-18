@@ -1,0 +1,13 @@
+<% if @stores.any?() %>
+    <p>Click on a store to see information about it and add actors to it:</p>
+
+    <ul>
+      <% @stores.each do |store| %>
+      <li><a href="/stores/<%= store.id() %>"><%= store.name() %></a><p>Became a member On:</p><%= store.created_at() %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no stores added yet!</p>
+  <% end %>
+
+  <a href="/stores/new"><button class="button btn">New Store</button></a>

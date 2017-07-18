@@ -1,0 +1,37 @@
+<h1>Welcome to the Air Jordan Mall!</h1>
+
+<div class = "row">
+<div class = "col-md-6">
+<h3>Here are all the stores in this database:</h3>
+
+  <% if @stores.any?() %>
+    <p>Click on an store to see information about them and mark which brands they were in:</p>
+
+    <ul>
+      <% @stores.each do |store| %>
+        <li><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no stores added yet!</p>
+  <% end %>
+  <a href="/stores"><button class="button btn">All Stores</button></a>
+</div>
+
+<div class = "col-md-6">
+<h3>Here are all the brands in this database:</h3>
+
+  <% if @brands.any?() %>
+    <p>Click on a brand to see information about it and mark which stores were in it:</p>
+
+    <ul>
+      <% @brands.each do |brand| %>
+        <li><a href="/brands/<%= brand.id() %>"><%= brand.name() %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no brands added yet!</p>
+  <% end %>
+  <a href="/brands"><button class="button btn">All Brands</button></a>
+</div>
+</div>

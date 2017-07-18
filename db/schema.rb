@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170718080010) do
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
-    t.string "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170718080010) do
 
   create_table "stores_shoes", force: :cascade do |t|
     t.integer "store_id"
-    t.integer "shoe_id"
+    t.integer "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

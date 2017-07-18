@@ -6,25 +6,45 @@ require("bundler/setup")
 
   #loads first web page 'index'
   get("/") do
-    @brands = Brand.all()
-    @store = Store.all()
     erb(:index)
   end
 
-  # redirect code
-  # post ('/clients')
-  #   @new_client = Client.new(params.fetch("namme"))
-  #   if @new_client.save()
-  #     redirect("/clients/".concat(@new_client.id().to_s()))
-  #   else
-  #     erb(:index)
-  #   end
-  # end
+  get("/start") do
+    @brands = Brand.all()
+    @stores = Store.all()
+    erb(:start)
+  end
 
-  # get('/clients/:id') do
-  #   @client = Client.find(params.fetch("id").to_i())
-  #   erb(:client)
-  # # end
+  get("/brands") do
+    @brands = Brand.all()
+    erb(:brands)
+  end
+
+  get("/stores") do
+    @stores = Store.all()
+    erb(:stores)
+  end
+
+  get("/stores/new") do
+    erb(:stores_form)
+  end
+
+  post("/stores") do
+    name = params.fetch("name")
+    store = Store.new({:name => name, :id => nil})
+    if store.save()
+      redirect("/stores/".concat(store.id().to_s()))
+    else
+      erb(:errors) #catching errors
+    end
+  end
+
+  get('/stores/:id') do
+    @store = Store.find(params.fetch("id").to_i())
+    erb(:store_details)
+  end
+
+  # redirect code
 
   # delete('/tasks/:id') do
   #   @task = Task.find(params.fetch("id").to_i()
