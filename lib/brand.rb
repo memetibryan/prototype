@@ -1,11 +1,9 @@
 class Brand < ActiveRecord::Base
-	has_many(:stores) #creating one to many relationship
+	has_many :stores_shoes
+    has_many :shoes, through: :stores_shoes #creating many to many relationship
 
 	#Active Record Validations making sure the form is not submitted blank
 	validates(:name, :presence => true)
-
-	#validates the number of characters input by the user
-	validates(:name, {:presence => true, :length => { :maximum => 19 }})
 
 	#changes the input to Title_Case
 	before_save(:titlecase_name)
