@@ -1,6 +1,6 @@
-class Shoes < ActiveRecord::Migration[5.1]
+class Brands < ActiveRecord::Migration[5.1]
   def change
-  	create_table(:shoes) do |t|
+  	create_table(:brands) do |t|
         t.column(:name, :string)
 
         t.timestamps()

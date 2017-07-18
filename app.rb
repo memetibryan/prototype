@@ -6,6 +6,8 @@ require("bundler/setup")
 
   #loads first web page 'index'
   get("/") do
+    @brands = Brand.all()
+    @store = Store.all()
     erb(:index)
   end
 

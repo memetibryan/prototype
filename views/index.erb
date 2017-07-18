@@ -1,1 +1,35 @@
-dgh
+<h1>Welcome to the Air Jordan Database!</h1>
+  <h2>A place where you can store information about brands and brands.</h2>
+
+  <p><a href="/brands">Add a new brand</a></p>
+  <p><a href="/brands">Add a new actor</a></p>
+
+
+  <h3>Here are all the brands in this database:</h3>
+
+  <% if @brands.any?() %>
+    <p>Click on an actor to see information about them and mark which brands they were in:</p>
+
+    <ul>
+      <% @brands.each do |actor| %>
+        <li><a href="/brands/<%= actor.id() %>"><%= actor.name() %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no brands added yet!</p>
+  <% end %>
+
+
+  <h3>Here are all the brands in this database:</h3>
+
+  <% if @brands.any?() %>
+    <p>Click on a brand to see information about it and mark which brands were in it:</p>
+
+    <ul>
+      <% @brands.each do |brand| %>
+        <li><a href="/brands/<%= brand.id() %>"><%= brand.name() %></a></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no brands added yet!</p>
+  <% end %>
