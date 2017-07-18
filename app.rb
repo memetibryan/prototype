@@ -33,10 +33,6 @@ require("bundler/setup")
     erb(:brand_form)
   end
 
-  get("/store_details") do
-    erb(:store_details)
-  end
-
   post("/stores") do
     name = params.fetch("name")
     store = Store.new({:name => name, :id => nil})
@@ -61,6 +57,12 @@ require("bundler/setup")
     @brands = Brand.all()
     @store = Store.find(params.fetch("id").to_i())
     erb(:store_details)
+  end
+
+  get('/brands/:id') do
+    @stores = Store.all()
+    @brand= Brand.find(params.fetch("id").to_i())
+    erb(:brand_details)
   end
 
   patch("/stores/:id") do

@@ -1,6 +1,6 @@
 class Brand < ActiveRecord::Base
 	has_many :stores_shoes
-    has_many :shoes, through: :stores_shoes #creating many to many relationship
+    has_many :stores, through: :stores_shoes #creating many to many relationship
 
 	#Active Record Validations making sure the form is not submitted blank
 	validates(:name, :presence => true)
