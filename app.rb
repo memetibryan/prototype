@@ -46,15 +46,18 @@ require("bundler/setup")
   post("/brands") do
     name = params.fetch("name")
     brand = Brand.new({:name => name, :id => nil})
-    brand.save()
-    erb(:success)
+    if brand.save()
+      erb(:success)
+    else
+      erb(:errors) #catching errors
+    end
   end
 
   get('/stores/:id') do
     @store = Store.find(params.fetch("id").to_i())
     erb(:store_details)
   end
-  
+
   # redirect code
 
   # delete('/tasks/:id') do
