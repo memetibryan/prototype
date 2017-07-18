@@ -29,19 +29,36 @@ require("bundler/setup")
     erb(:stores_form)
   end
 
+  get("/brands/new") do
+    erb(:new_brands)
+  end
+
   post("/stores") do
     name = params.fetch("name")
     store = Store.new({:name => name, :id => nil})
     if store.save()
-      redirect("/stores/".concat(store.id().to_s()))
+      redirect("/stores/".concat(store.id().to_s()))  #implemented redirecting functionality
     else
       erb(:errors) #catching errors
     end
   end
 
+  post("/brands") do
+    name = params.fetch("name")
+    brand = Brand.new({:name => name, :id => nil})
+    brand.save()
+    erb(:success)
+  end
+
   get('/stores/:id') do
     @store = Store.find(params.fetch("id").to_i())
     erb(:store_details)
+  end
+
+  #loads the form to add a new record to database 'stores'
+  get('/add') do
+    @stores = Store.all()
+    erb(:new_brands)
   end
 
   # redirect code

@@ -1,3 +1,5 @@
+<h1>All Stores</h1>
+
 <% if @stores.any?() %>
     <p>Click on a store to see information about it and add actors to it:</p>
 
@@ -10,4 +12,8 @@
     <p>There are no stores added yet!</p>
   <% end %>
 
-  <a href="/stores/new"><button class="button btn">New Store</button></a>
+  <div class="container">
+    <a href="/"><button class="button btn">Return Home</button></a>
+    <a href="/stores/new"><button class="button btn">New Store</button></a>
+    <a href="/add"><button class="button btn">Add a brand to existing Store</button></a>
+  </div>
